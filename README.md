@@ -1,78 +1,29 @@
-# eleventy-base-blog
+# TakeShape Starter 11ty
 
-A starter repository showing how to build a blog with the [Eleventy](https://github.com/11ty/eleventy) static site generator.
-
-[![Build Status](https://travis-ci.org/11ty/eleventy-base-blog.svg?branch=master)](https://travis-ci.org/11ty/eleventy-base-blog)
-
-## Demos
-
-* [Netlify](https://eleventy-base-blog.netlify.com/)
-* [GitHub Pages](https://11ty.github.io/eleventy-base-blog/)
-* [Remix on Glitch](https://glitch.com/~11ty-eleventy-base-blog)
-
-## Deploy this to your own site
-
-These builders are amazing—try them out to get your own Eleventy site in a few clicks!
-
-* [Get your own Eleventy web site on Netlify](https://app.netlify.com/start/deploy?repository=https://github.com/11ty/eleventy-base-blog)
-* [Get your own Eleventy web site on Vercel](https://vercel.com/import/project?template=11ty%2Feleventy-base-blog)
-
-## Getting Started
-
-### 1. Clone this Repository
-
-```
-git clone https://github.com/11ty/eleventy-base-blog.git my-blog-name
-```
+The following is a guide to launching an 11ty TakeShape project that injects Ecommerce data into your components.
 
 
-### 2. Navigate to the directory
+## Instructions
 
-```
-cd my-blog-name
-```
+1. Create a TakeShape project with the pattern in this repo. The button below will deploy the project: 
 
-Specifically have a look at `.eleventy.js` to see if you want to configure any Eleventy options differently.
+* <a href="https://app.takeshape.io/add-to-takeshape?repo=https://github.com/takeshape/takeshape-starter-11ty/tree/main/.takeshape/pattern"><img alt="Deploy To TakeShape" src="https://camo.githubusercontent.com/1b580e3ce353d235bde0f376ca35b0fb26d685f3750a3013ae4b225dd3aaf344/68747470733a2f2f696d616765732e74616b6573686170652e696f2f32636363633832352d373062652d343331632d396261302d3130616233386563643361372f6465762f38653266376264612d306530382d346564652d613534362d3664663539626536613862622f4465706c6f79253230746f25323054616b65536861706525343032782e706e673f6175746f3d666f726d6174253243636f6d7072657373" width="205" height="38" data-canonical-src="https://images.takeshape.io/2cccc825-70be-431c-9ba0-10ab38ecd3a7/dev/8e2f7bda-0e08-4ede-a546-6df59be6a8bb/Deploy%20to%20TakeShape%402x.png?auto=format%2Ccompress" style="max-width:100%;"></a>
 
-### 3. Install dependencies
+2. Follow our documentation to [create a read-only API Key](https://app.takeshape.io/docs/api/api-keys).
 
-```
-npm install
-```
+3. Find your API Endpoint by navigating to your project in the TakeShape web client and clicking on the Home tab. Scroll down, and you'll see your API Endpoint in the `Useful Snippets` section on the bottom right. Refer to the image below:
 
-### 4. Edit _data/metadata.json
+![Useful Snippets](./images/useful-snippets.png)
 
-### 5. Run Eleventy
+4. In the terminal on your local machine, clone this repo with `git clone https://github.com/takeshape/takeshape-starter-11ty`
 
-```
-npx eleventy
-```
+5. Open the project in your favorite IDE or change directories into it with your terminal.
 
-Or build and host locally for local development
-```
-npx eleventy --serve
-```
+5. Edit `products.js` in the `_data` directory and replace the text that says `YOUR-ENDPOINT-HERE` with your API Endpoint. Replace the text that says `YOUR-API-KEY-HERE` with your API Key.
 
-Or build automatically when a template changes:
-```
-npx eleventy --watch
-```
+6. Run `npm install` and then `npx eleventy --serve` in your terminal.
 
-Or in debug mode:
-```
-DEBUG=* npx eleventy
-```
 
-### Implementation Notes
+## Learn More
 
-* `about/index.md` shows how to add a content page.
-* `posts/` has the blog posts but really they can live in any directory. They need only the `post` tag to be added to this collection.
-* Add the `nav` tag to add a template to the top level site navigation. For example, this is in use on `index.njk` and `about/index.md`.
-* Content can be any template format (blog posts needn’t be markdown, for example). Configure your supported templates in `.eleventy.js` -> `templateFormats`.
-	* Because `css` and `png` are listed in `templateFormats` but are not supported template types, any files with these extensions will be copied without modification to the output (while keeping the same directory structure).
-* The blog post feed template is in `feed/feed.njk`. This is also a good example of using a global data files in that it uses `_data/metadata.json`.
-* This example uses three layouts:
-  * `_includes/layouts/base.njk`: the top level HTML structure
-  * `_includes/layouts/home.njk`: the home page template (wrapped into `base.njk`)
-  * `_includes/layouts/post.njk`: the blog post template (wrapped into `base.njk`)
-* `_includes/postlist.njk` is a Nunjucks include and is a reusable component used to display a list of all the posts. `index.njk` has an example of how to use it.
+Check out [our docs on this project](https://app.takeshape.io/docs/get-started/ssg/11ty) to learn how this example works. We also have an [article about using 11ty with TakeShape](https://www.takeshape.io/articles/how-to-use-11ty-with-takeshape/).

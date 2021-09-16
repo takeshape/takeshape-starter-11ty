@@ -2,12 +2,12 @@ const fetch = require('node-fetch');
 
 module.exports = async () => {
     //takeshape is the endpoint defined
-  const response = await fetch('YOUR-ENDPOINT-HERE', {
+  const response = await fetch(process.env.TAKESHAPE_ENDPOINT, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
       Accept: 'application/json',
-      Authorization: `Bearer YOUR-API-KEY-HERE`,
+      Authorization: `Bearer ${process.env.TAKESHAPE_API_KEY}`,
     },
     body: JSON.stringify({
       query: `query{
